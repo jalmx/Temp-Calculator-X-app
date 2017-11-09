@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Temp Calcu X</string>
+
+    <string name="celsius">Celsius</string>
+    <string name="fahrenheit">Fahrenheit</string>
+    <string name="temperature">Temperature</string>
+    <string name="degrees">Degrees</string>
+    <string name="degrees_celsius">°C</string>
+    <string name="degrees_fahrenheit">°F</string>
 </resources>
