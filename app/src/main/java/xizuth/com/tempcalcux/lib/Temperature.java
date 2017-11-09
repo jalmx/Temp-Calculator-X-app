@@ -1,8 +1,16 @@
 package xizuth.com.tempcalcux.lib;
 
-/**
- * Created by vaio on 9/11/17.
- */
-
 public class Temperature {
+
+    private Temperature() {
+
+    }
+
+    public static double celsiusToFahrenheit(double celsius) {
+        return (celsius * (9 / 5)) + 32;
+    }
+
+    public static double fahrenheitToCelsius(double fahrenheit) {
+        return (fahrenheit - 32) / (9 / 5);
+    }
 }

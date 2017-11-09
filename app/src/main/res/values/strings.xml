@@ -9,9 +9,4 @@
     <string name="degrees_fahrenheit">°F</string>
 
     <string name="error_digit">Just numbers</string>
-
-    <string-array name="temperature_selection">
-        <item>@string/degrees_fahrenheit</item>
-        <item>@string/degrees_celsius</item>
-    </string-array>
 </resources>
