@@ -13,20 +13,26 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:orientation="vertical">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/question"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginTop="16dp"
+                    android:weightSum="1">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -42,13 +48,14 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="end">
+                        android:layout_weight=".5">
 
                         <RadioButton
                             android:id="@+id/radio_fahrenheit"
                             android:layout_width="wrap_content"
+                            android:layout_gravity="end"
                             android:layout_height="wrap_content"
                             android:text="@string/fahrenheit" />
                     </LinearLayout>
@@ -57,18 +64,15 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:orientation="horizontal"
-                    android:weightSum="1">
+                    android:orientation="horizontal">
 
                     <android.support.design.widget.TextInputLayout
-                        android:id="@+id/input_value"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".9">
+                        android:layout_width="0dp"
+                        android:layout_weight=".3"
+                        android:layout_height="wrap_content">
 
                         <android.support.design.widget.TextInputEditText
-                            android:id="@+id/second_value"
+                            android:id="@+id/input_value"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:hint="@string/degrees"
@@ -81,11 +85,12 @@
                         android:id="@+id/text_degrees"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_marginRight="8dp"
                         android:gravity="center"
                         android:text="@string/degrees_fahrenheit"
                         android:textColor="@color/black"
-                        android:textSize="32sp" />
+                        android:textSize="32sp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -97,9 +102,8 @@
                         android:id="@+id/result_degrees"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="3"
                         android:gravity="center"
-                        android:text="0°C"
+                        android:text="@string/degrees_celsius"
                         android:textColor="@color/black"
                         android:textSize="60sp" />
                 </LinearLayout>

@@ -9,4 +9,5 @@
     <string name="degrees_fahrenheit">°F</string>
 
     <string name="error_digit">Just numbers</string>
+    <string name="question">¿Qué deseas cálcular?</string>
 </resources>

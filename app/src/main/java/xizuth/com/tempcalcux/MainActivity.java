@@ -1,12 +1,15 @@
 package xizuth.com.tempcalcux;
 
 import android.os.Bundle;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
@@ -15,12 +18,21 @@ import xizuth.com.tempcalcux.lib.Temperature;
 public class MainActivity extends AppCompatActivity {
 
     private RadioButton radioCelsius;
-    private TextView valueInput;
+    private EditText valueInput;
     private RadioButton radioFahrenheit;
     private TextView degreesSelect;
+
     View.OnClickListener radioAction = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+            switch (view.getId()){
+                case R.id.radio_celsius:
+                    radioFahrenheit.setChecked(false);
+                    break;
+                case R.id.radio_fahrenheit:
+                    radioCelsius.setChecked(false);
+                    break;
+            }
             degreesSelectOption();
             printResult();
         }
@@ -41,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
             printResult();
         }
     };
+
     private TextView.OnEditorActionListener onEditorActionListener = new TextView.OnEditorActionListener() {
         @Override
         public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
@@ -56,7 +69,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initViews();
+        loadListener();
+    }
 
+    private void loadListener(){
+        radioCelsius.setOnClickListener(radioAction);
+        radioFahrenheit.setOnClickListener(radioAction);
+        valueInput.setOnEditorActionListener(onEditorActionListener);
+        valueInput.addTextChangedListener(textWatcher);
     }
 
     private double getValueUI() {
@@ -76,11 +96,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        valueInput = (TextView) findViewById(R.id.input_value);
-        radioCelsius = (RadioButton) findViewById(R.id.radio_celsius);
-        radioFahrenheit = (RadioButton) findViewById(R.id.radio_fahrenheit);
-        degreesSelect = (TextView) findViewById(R.id.text_degrees);
-        valueInput.setOnEditorActionListener(onEditorActionListener);
+        valueInput = findViewById(R.id.input_value);
+        radioCelsius =  findViewById(R.id.radio_celsius);
+        radioFahrenheit = findViewById(R.id.radio_fahrenheit);
+        degreesSelect = findViewById(R.id.text_degrees);
     }
 
     private void printResult() {
@@ -94,16 +113,16 @@ public class MainActivity extends AppCompatActivity {
     private double calculate() {
         double value = 0.0;
 
-        if (radioCelsius.isSelected()) {
-            value = Temperature.celsiusToFahrenheit(getValueUI());
-        } else {
+        if (radioCelsius.isChecked()) {
             value = Temperature.fahrenheitToCelsius(getValueUI());
+        } else {
+            value = Temperature.celsiusToFahrenheit(getValueUI());
         }
         return value;
     }
 
     private String degreesSelectedResult() {
-        if (radioCelsius.isSelected()) {
+        if (radioCelsius.isChecked()) {
             return getString(R.string.degrees_celsius);
         } else {
             return getString(R.string.degrees_fahrenheit);
@@ -111,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void degreesSelectOption() {
-        if (radioCelsius.isSelected()) {
+        if (radioCelsius.isChecked()) {
             degreesSelect.setText(getString(R.string.degrees_fahrenheit));
         } else {
             degreesSelect.setText(getString(R.string.degrees_celsius));
