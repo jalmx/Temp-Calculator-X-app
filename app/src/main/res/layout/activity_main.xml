@@ -25,7 +25,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/question"
-                    android:textColor="@color/black"
+                    android:textColor="@color/primary_text"
                     android:textSize="18sp"/>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -87,7 +87,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="@string/degrees_fahrenheit"
-                        android:textColor="@color/black"
+                        android:textColor="@color/primary_text"
                         android:textSize="32sp"
                         android:paddingLeft="8dp"
                         android:paddingRight="8dp"/>
@@ -104,7 +104,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="@string/degrees_celsius"
-                        android:textColor="@color/black"
+                        android:textColor="@color/primary_text"
                         android:textSize="60sp" />
                 </LinearLayout>
 

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Convertidor Temp X</string>
+
+    <string name="celsius">Celsius</string>
+    <string name="fahrenheit">Fahrenheit</string>
+    <string name="temperature">Temperatura</string>
+    <string name="degrees">Grados</string>
+    <string name="degrees_celsius">°C</string>
+    <string name="degrees_fahrenheit">°F</string>
+
+    <string name="error_digit">Sólo números</string>
+    <string name="question">¿Qué deseas cálcular?</string>
+</resources>
