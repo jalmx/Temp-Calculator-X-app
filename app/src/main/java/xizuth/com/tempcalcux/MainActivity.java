@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import xizuth.com.tempcalcux.admob.AdMob;
 import xizuth.com.tempcalcux.lib.Temperature;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText valueInput;
     private RadioButton radioFahrenheit;
     private TextView degreesSelect;
+    private AdMob adMob;
 
     View.OnClickListener radioAction = new View.OnClickListener() {
         @Override
@@ -70,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initViews();
         loadListener();
+        adMob = new AdMob(this);
     }
 
     private void loadListener(){
@@ -135,5 +138,23 @@ public class MainActivity extends AppCompatActivity {
         } else {
             degreesSelect.setText(getString(R.string.degrees_celsius));
         }
+    }
+
+    @Override
+    protected void onPause() {
+        adMob.pauseAdMob();
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        adMob.resumeAdMob();
+        super.onResume();
+    }
+
+    @Override
+    protected void onDestroy() {
+        adMob.destroyAdMob();
+        super.onDestroy();
     }
 }

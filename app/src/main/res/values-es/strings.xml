@@ -11,4 +11,6 @@
 
     <string name="error_digit">Sólo números</string>
     <string name="question">¿Qué deseas cálcular?</string>
+    <string name="app_id">ca-app-pub-1366168498409484~4024780892</string>
+    <string name="app_unit_id">ca-app-pub-1366168498409484/7960635405</string>
 </resources>
